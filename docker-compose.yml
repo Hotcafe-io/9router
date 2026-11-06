@@ -17,6 +17,8 @@ services:
       HEADROOM_URL: http://headroom:8787
     depends_on:
       - headroom
+    networks:
+      - proxy-net
 
   headroom:
     image: ghcr.io/chopratejas/headroom:latest
@@ -28,3 +30,8 @@ services:
 volumes:
   9router-data:
     name: 9router-data
+
+networks:
+  proxy-net:
+    external: true
+    name: proxy-net
